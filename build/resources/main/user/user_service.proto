@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package user;
+
+option java_package = "com.gitlab.leonklein.user";
+option java_multiple_files = true;
+
+import "user/user.proto";
+
+message CreateUserRequest {
+  User user = 1;
+}
+
+message CreateUserResponse {
+  User user = 1;
+}
+
+message UpdateUserRequest {
+  User user = 1;
+}
+
+message UpdateUserResponse {
+  User user = 1;
+}
+
+message FindUserRequest {
+  User user = 1;
+}
+
+message FindUserResponde {
+  User user = 1;
+}
+
+service UserService {
+  rpc Create(CreateUserRequest) returns (CreateUserResponse);
+  rpc Update(UpdateUserRequest) returns (UpdateUserResponse);
+  rpc Find(FindUserRequest) returns (FindUserResponde);
+}
