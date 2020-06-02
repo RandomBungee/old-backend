@@ -30,15 +30,22 @@ message UpdateUserResponse {
 }
 
 message FindUserRequest {
-  User user = 1;
+  string unique_id = 1;
 }
 
 message FindUserResponde {
   User user = 1;
 }
 
+message ListUserRequest {}
+
+message ListUserResponse {
+  repeated User user = 1;
+}
+
 service UserService {
   rpc Create(CreateUserRequest) returns (CreateUserResponse);
   rpc Update(UpdateUserRequest) returns (UpdateUserResponse);
   rpc Find(FindUserRequest) returns (FindUserResponde);
+  rpc List(ListUserRequest) returns (ListUserResponse);
 }

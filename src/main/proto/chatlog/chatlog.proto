@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package group;
+
+option java_package = "com.gitlab.leonklein.chatlog";
+option java_multiple_files = true;
+
+message Chatlog {
+  string creator = 1;
+  string reported = 2;
+  string server = 3;
+  repeated string messages = 4;
+}

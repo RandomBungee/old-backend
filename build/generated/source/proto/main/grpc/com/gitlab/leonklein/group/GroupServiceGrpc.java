@@ -46,23 +46,23 @@ public class GroupServiceGrpc {
           io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.UpdateGroupRequest.getDefaultInstance()),
           io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.UpdateGroupResponse.getDefaultInstance()));
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.gitlab.leonklein.group.ListRoleRequest,
-      com.gitlab.leonklein.group.ListRoleResponse> METHOD_LIST =
+  public static final io.grpc.MethodDescriptor<com.gitlab.leonklein.group.ListGroupRequest,
+      com.gitlab.leonklein.group.ListGroupResponse> METHOD_LIST =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "group.GroupService", "List"),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.ListRoleRequest.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.ListRoleResponse.getDefaultInstance()));
+          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.ListGroupRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.ListGroupResponse.getDefaultInstance()));
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.gitlab.leonklein.group.FindRoleRequest,
-      com.gitlab.leonklein.group.FindRoleResponse> METHOD_FIND =
+  public static final io.grpc.MethodDescriptor<com.gitlab.leonklein.group.FindGroupRequest,
+      com.gitlab.leonklein.group.FindGroupResponse> METHOD_FIND =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "group.GroupService", "Find"),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.FindRoleRequest.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.FindRoleResponse.getDefaultInstance()));
+          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.FindGroupRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.group.FindGroupResponse.getDefaultInstance()));
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -107,15 +107,15 @@ public class GroupServiceGrpc {
 
     /**
      */
-    public void list(com.gitlab.leonklein.group.ListRoleRequest request,
-        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.ListRoleResponse> responseObserver) {
+    public void list(com.gitlab.leonklein.group.ListGroupRequest request,
+        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.ListGroupResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_LIST, responseObserver);
     }
 
     /**
      */
-    public void find(com.gitlab.leonklein.group.FindRoleRequest request,
-        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.FindRoleResponse> responseObserver) {
+    public void find(com.gitlab.leonklein.group.FindGroupRequest request,
+        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.FindGroupResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_FIND, responseObserver);
     }
 
@@ -139,15 +139,15 @@ public class GroupServiceGrpc {
             METHOD_LIST,
             asyncUnaryCall(
               new MethodHandlers<
-                com.gitlab.leonklein.group.ListRoleRequest,
-                com.gitlab.leonklein.group.ListRoleResponse>(
+                com.gitlab.leonklein.group.ListGroupRequest,
+                com.gitlab.leonklein.group.ListGroupResponse>(
                   this, METHODID_LIST)))
           .addMethod(
             METHOD_FIND,
             asyncUnaryCall(
               new MethodHandlers<
-                com.gitlab.leonklein.group.FindRoleRequest,
-                com.gitlab.leonklein.group.FindRoleResponse>(
+                com.gitlab.leonklein.group.FindGroupRequest,
+                com.gitlab.leonklein.group.FindGroupResponse>(
                   this, METHODID_FIND)))
           .build();
     }
@@ -189,16 +189,16 @@ public class GroupServiceGrpc {
 
     /**
      */
-    public void list(com.gitlab.leonklein.group.ListRoleRequest request,
-        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.ListRoleResponse> responseObserver) {
+    public void list(com.gitlab.leonklein.group.ListGroupRequest request,
+        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.ListGroupResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_LIST, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void find(com.gitlab.leonklein.group.FindRoleRequest request,
-        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.FindRoleResponse> responseObserver) {
+    public void find(com.gitlab.leonklein.group.FindGroupRequest request,
+        io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.FindGroupResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_FIND, getCallOptions()), request, responseObserver);
     }
@@ -238,14 +238,14 @@ public class GroupServiceGrpc {
 
     /**
      */
-    public com.gitlab.leonklein.group.ListRoleResponse list(com.gitlab.leonklein.group.ListRoleRequest request) {
+    public com.gitlab.leonklein.group.ListGroupResponse list(com.gitlab.leonklein.group.ListGroupRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_LIST, getCallOptions(), request);
     }
 
     /**
      */
-    public com.gitlab.leonklein.group.FindRoleResponse find(com.gitlab.leonklein.group.FindRoleRequest request) {
+    public com.gitlab.leonklein.group.FindGroupResponse find(com.gitlab.leonklein.group.FindGroupRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_FIND, getCallOptions(), request);
     }
@@ -287,16 +287,16 @@ public class GroupServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.gitlab.leonklein.group.ListRoleResponse> list(
-        com.gitlab.leonklein.group.ListRoleRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.gitlab.leonklein.group.ListGroupResponse> list(
+        com.gitlab.leonklein.group.ListGroupRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_LIST, getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.gitlab.leonklein.group.FindRoleResponse> find(
-        com.gitlab.leonklein.group.FindRoleRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.gitlab.leonklein.group.FindGroupResponse> find(
+        com.gitlab.leonklein.group.FindGroupRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_FIND, getCallOptions()), request);
     }
@@ -333,12 +333,12 @@ public class GroupServiceGrpc {
               (io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.UpdateGroupResponse>) responseObserver);
           break;
         case METHODID_LIST:
-          serviceImpl.list((com.gitlab.leonklein.group.ListRoleRequest) request,
-              (io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.ListRoleResponse>) responseObserver);
+          serviceImpl.list((com.gitlab.leonklein.group.ListGroupRequest) request,
+              (io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.ListGroupResponse>) responseObserver);
           break;
         case METHODID_FIND:
-          serviceImpl.find((com.gitlab.leonklein.group.FindRoleRequest) request,
-              (io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.FindRoleResponse>) responseObserver);
+          serviceImpl.find((com.gitlab.leonklein.group.FindGroupRequest) request,
+              (io.grpc.stub.StreamObserver<com.gitlab.leonklein.group.FindGroupResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();

@@ -29,25 +29,25 @@ public final class GroupServiceOuterClass {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_group_UpdateGroupResponse_fieldAccessorTable;
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_group_ListRoleRequest_descriptor;
+    internal_static_group_ListGroupRequest_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_group_ListRoleRequest_fieldAccessorTable;
+      internal_static_group_ListGroupRequest_fieldAccessorTable;
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_group_ListRoleResponse_descriptor;
+    internal_static_group_ListGroupResponse_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_group_ListRoleResponse_fieldAccessorTable;
+      internal_static_group_ListGroupResponse_fieldAccessorTable;
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_group_FindRoleRequest_descriptor;
+    internal_static_group_FindGroupRequest_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_group_FindRoleRequest_fieldAccessorTable;
+      internal_static_group_FindGroupRequest_fieldAccessorTable;
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_group_FindRoleResponse_descriptor;
+    internal_static_group_FindGroupResponse_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_group_FindRoleResponse_fieldAccessorTable;
+      internal_static_group_FindGroupResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -63,19 +63,18 @@ public final class GroupServiceOuterClass {
       "esponse\022\033\n\005group\030\001 \001(\0132\014.group.Group\"1\n\022" +
       "UpdateGroupRequest\022\033\n\005group\030\001 \001(\0132\014.grou" +
       "p.Group\"2\n\023UpdateGroupResponse\022\033\n\005group\030" +
-      "\001 \001(\0132\014.group.Group\"\021\n\017ListRoleRequest\"." +
-      "\n\020ListRoleResponse\022\032\n\004role\030\001 \003(\0132\014.group" +
-      ".Group\"-\n\017FindRoleRequest\022\032\n\004role\030\001 \001(\0132" +
-      "\014.group.Group\".\n\020FindRoleResponse\022\032\n\004rol",
-      "e\030\001 \001(\0132\014.group.Group2\202\002\n\014GroupService\022?" +
-      "\n\006Create\022\031.group.CreateGroupRequest\032\032.gr" +
-      "oup.CreateGroupResponse\022?\n\006Update\022\031.grou" +
-      "p.UpdateGroupRequest\032\032.group.UpdateGroup" +
-      "Response\0227\n\004List\022\026.group.ListRoleRequest" +
-      "\032\027.group.ListRoleResponse\0227\n\004Find\022\026.grou" +
-      "p.FindRoleRequest\032\027.group.FindRoleRespon" +
-      "seB\036\n\032com.gitlab.leonklein.groupP\001b\006prot" +
-      "o3"
+      "\001 \001(\0132\014.group.Group\"\022\n\020ListGroupRequest\"" +
+      "0\n\021ListGroupResponse\022\033\n\005group\030\001 \003(\0132\014.gr" +
+      "oup.Group\" \n\020FindGroupRequest\022\014\n\004name\030\001 " +
+      "\001(\t\"0\n\021FindGroupResponse\022\033\n\005group\030\001 \001(\0132",
+      "\014.group.Group2\206\002\n\014GroupService\022?\n\006Create" +
+      "\022\031.group.CreateGroupRequest\032\032.group.Crea" +
+      "teGroupResponse\022?\n\006Update\022\031.group.Update" +
+      "GroupRequest\032\032.group.UpdateGroupResponse" +
+      "\0229\n\004List\022\027.group.ListGroupRequest\032\030.grou" +
+      "p.ListGroupResponse\0229\n\004Find\022\027.group.Find" +
+      "GroupRequest\032\030.group.FindGroupResponseB\036" +
+      "\n\032com.gitlab.leonklein.groupP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -114,30 +113,30 @@ public final class GroupServiceOuterClass {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_group_UpdateGroupResponse_descriptor,
         new java.lang.String[] { "Group", });
-    internal_static_group_ListRoleRequest_descriptor =
+    internal_static_group_ListGroupRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_group_ListRoleRequest_fieldAccessorTable = new
+    internal_static_group_ListGroupRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_group_ListRoleRequest_descriptor,
+        internal_static_group_ListGroupRequest_descriptor,
         new java.lang.String[] { });
-    internal_static_group_ListRoleResponse_descriptor =
+    internal_static_group_ListGroupResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_group_ListRoleResponse_fieldAccessorTable = new
+    internal_static_group_ListGroupResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_group_ListRoleResponse_descriptor,
-        new java.lang.String[] { "Role", });
-    internal_static_group_FindRoleRequest_descriptor =
+        internal_static_group_ListGroupResponse_descriptor,
+        new java.lang.String[] { "Group", });
+    internal_static_group_FindGroupRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_group_FindRoleRequest_fieldAccessorTable = new
+    internal_static_group_FindGroupRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_group_FindRoleRequest_descriptor,
-        new java.lang.String[] { "Role", });
-    internal_static_group_FindRoleResponse_descriptor =
+        internal_static_group_FindGroupRequest_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_group_FindGroupResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_group_FindRoleResponse_fieldAccessorTable = new
+    internal_static_group_FindGroupResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_group_FindRoleResponse_descriptor,
-        new java.lang.String[] { "Role", });
+        internal_static_group_FindGroupResponse_descriptor,
+        new java.lang.String[] { "Group", });
     com.gitlab.leonklein.group.GroupOuterClass.getDescriptor();
   }
 

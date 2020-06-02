@@ -8,7 +8,7 @@ public interface GroupRepository {
 
   void update(Group group);
 
-  Optional<Group> findGroup(Group group);
+  Optional<Group> findGroup(String name);
 
-  List<Group> listGroup();
+  List<Group> list();
 }

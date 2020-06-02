@@ -1,9 +1,14 @@
 package com.gitlab.leonklein.user;
 
+import java.util.List;
+import java.util.Optional;
+
 public interface UserRepository {
   void create(User user);
 
   void update(User user);
 
-  User find(String uniqueId);
+  Optional<User> find(String uniqueId);
+
+  List<User> list();
 }

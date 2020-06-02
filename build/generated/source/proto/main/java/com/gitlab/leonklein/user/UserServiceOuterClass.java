@@ -38,6 +38,16 @@ public final class UserServiceOuterClass {
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_user_FindUserResponde_fieldAccessorTable;
+  static com.google.protobuf.Descriptors.Descriptor
+    internal_static_user_ListUserRequest_descriptor;
+  static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_user_ListUserRequest_fieldAccessorTable;
+  static com.google.protobuf.Descriptors.Descriptor
+    internal_static_user_ListUserResponse_descriptor;
+  static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_user_ListUserResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -55,15 +65,17 @@ public final class UserServiceOuterClass {
       " \001(\t\022\r\n\005coins\030\003 \001(\003\022\014\n\004wins\030\004 \001(\003\"Y\n\022Upd" +
       "ateUserResponse\022\030\n\004user\030\001 \001(\0132\n.user.Use" +
       "r\022\014\n\004rank\030\002 \001(\t\022\r\n\005coins\030\003 \001(\003\022\014\n\004wins\030\004" +
-      " \001(\003\"+\n\017FindUserRequest\022\030\n\004user\030\001 \001(\0132\n." +
-      "user.User\",\n\020FindUserResponde\022\030\n\004user\030\001 ",
-      "\001(\0132\n.user.User2\276\001\n\013UserService\022;\n\006Creat" +
-      "e\022\027.user.CreateUserRequest\032\030.user.Create" +
-      "UserResponse\022;\n\006Update\022\027.user.UpdateUser" +
-      "Request\032\030.user.UpdateUserResponse\0225\n\004Fin" +
-      "d\022\025.user.FindUserRequest\032\026.user.FindUser" +
-      "RespondeB\035\n\031com.gitlab.leonklein.userP\001b" +
-      "\006proto3"
+      " \001(\003\"$\n\017FindUserRequest\022\021\n\tunique_id\030\001 \001" +
+      "(\t\",\n\020FindUserResponde\022\030\n\004user\030\001 \001(\0132\n.u",
+      "ser.User\"\021\n\017ListUserRequest\",\n\020ListUserR" +
+      "esponse\022\030\n\004user\030\001 \003(\0132\n.user.User2\365\001\n\013Us" +
+      "erService\022;\n\006Create\022\027.user.CreateUserReq" +
+      "uest\032\030.user.CreateUserResponse\022;\n\006Update" +
+      "\022\027.user.UpdateUserRequest\032\030.user.UpdateU" +
+      "serResponse\0225\n\004Find\022\025.user.FindUserReque" +
+      "st\032\026.user.FindUserResponde\0225\n\004List\022\025.use" +
+      "r.ListUserRequest\032\026.user.ListUserRespons" +
+      "eB\035\n\031com.gitlab.leonklein.userP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -107,12 +119,24 @@ public final class UserServiceOuterClass {
     internal_static_user_FindUserRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_user_FindUserRequest_descriptor,
-        new java.lang.String[] { "User", });
+        new java.lang.String[] { "UniqueId", });
     internal_static_user_FindUserResponde_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_user_FindUserResponde_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_user_FindUserResponde_descriptor,
+        new java.lang.String[] { "User", });
+    internal_static_user_ListUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_user_ListUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_user_ListUserRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_user_ListUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_user_ListUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_user_ListUserResponse_descriptor,
         new java.lang.String[] { "User", });
     com.gitlab.leonklein.user.UserOuterClass.getDescriptor();
   }

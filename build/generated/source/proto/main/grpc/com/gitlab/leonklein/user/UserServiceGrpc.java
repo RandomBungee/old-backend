@@ -54,6 +54,15 @@ public class UserServiceGrpc {
               "user.UserService", "Find"),
           io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.user.FindUserRequest.getDefaultInstance()),
           io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.user.FindUserResponde.getDefaultInstance()));
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.gitlab.leonklein.user.ListUserRequest,
+      com.gitlab.leonklein.user.ListUserResponse> METHOD_LIST =
+      io.grpc.MethodDescriptor.create(
+          io.grpc.MethodDescriptor.MethodType.UNARY,
+          generateFullMethodName(
+              "user.UserService", "List"),
+          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.user.ListUserRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(com.gitlab.leonklein.user.ListUserResponse.getDefaultInstance()));
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -103,6 +112,13 @@ public class UserServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_FIND, responseObserver);
     }
 
+    /**
+     */
+    public void list(com.gitlab.leonklein.user.ListUserRequest request,
+        io.grpc.stub.StreamObserver<com.gitlab.leonklein.user.ListUserResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_LIST, responseObserver);
+    }
+
     @java.lang.Override public io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -126,6 +142,13 @@ public class UserServiceGrpc {
                 com.gitlab.leonklein.user.FindUserRequest,
                 com.gitlab.leonklein.user.FindUserResponde>(
                   this, METHODID_FIND)))
+          .addMethod(
+            METHOD_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.gitlab.leonklein.user.ListUserRequest,
+                com.gitlab.leonklein.user.ListUserResponse>(
+                  this, METHODID_LIST)))
           .build();
     }
   }
@@ -171,6 +194,14 @@ public class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_FIND, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void list(com.gitlab.leonklein.user.ListUserRequest request,
+        io.grpc.stub.StreamObserver<com.gitlab.leonklein.user.ListUserResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_LIST, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -210,6 +241,13 @@ public class UserServiceGrpc {
     public com.gitlab.leonklein.user.FindUserResponde find(com.gitlab.leonklein.user.FindUserRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_FIND, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.gitlab.leonklein.user.ListUserResponse list(com.gitlab.leonklein.user.ListUserRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_LIST, getCallOptions(), request);
     }
   }
 
@@ -254,11 +292,20 @@ public class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_FIND, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.gitlab.leonklein.user.ListUserResponse> list(
+        com.gitlab.leonklein.user.ListUserRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_LIST, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE = 0;
   private static final int METHODID_UPDATE = 1;
   private static final int METHODID_FIND = 2;
+  private static final int METHODID_LIST = 3;
 
   private static class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -289,6 +336,10 @@ public class UserServiceGrpc {
           serviceImpl.find((com.gitlab.leonklein.user.FindUserRequest) request,
               (io.grpc.stub.StreamObserver<com.gitlab.leonklein.user.FindUserResponde>) responseObserver);
           break;
+        case METHODID_LIST:
+          serviceImpl.list((com.gitlab.leonklein.user.ListUserRequest) request,
+              (io.grpc.stub.StreamObserver<com.gitlab.leonklein.user.ListUserResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -309,7 +360,8 @@ public class UserServiceGrpc {
     return new io.grpc.ServiceDescriptor(SERVICE_NAME,
         METHOD_CREATE,
         METHOD_UPDATE,
-        METHOD_FIND);
+        METHOD_FIND,
+        METHOD_LIST);
   }
 
 }

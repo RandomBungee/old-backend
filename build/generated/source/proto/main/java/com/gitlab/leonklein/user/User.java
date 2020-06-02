@@ -15,11 +15,11 @@ public  final class User extends
     super(builder);
   }
   private User() {
-    name_ = "";
     uniqueId_ = "";
     rank_ = "";
     coins_ = 0L;
     wins_ = 0L;
+    banPoints_ = 0L;
   }
 
   @java.lang.Override
@@ -49,29 +49,28 @@ public  final class User extends
           case 10: {
             com.google.protobuf.ByteString bs = input.readBytes();
 
-            name_ = bs;
+            uniqueId_ = bs;
             break;
           }
           case 18: {
             com.google.protobuf.ByteString bs = input.readBytes();
 
-            uniqueId_ = bs;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.ByteString bs = input.readBytes();
-
             rank_ = bs;
             break;
           }
-          case 32: {
+          case 24: {
 
             coins_ = input.readInt64();
             break;
           }
-          case 40: {
+          case 32: {
 
             wins_ = input.readInt64();
+            break;
+          }
+          case 40: {
+
+            banPoints_ = input.readInt64();
             break;
           }
         }
@@ -98,46 +97,10 @@ public  final class User extends
             com.gitlab.leonklein.user.User.class, com.gitlab.leonklein.user.User.Builder.class);
   }
 
-  public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
-  /**
-   * <code>optional string name = 1;</code>
-   */
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      if (bs.isValidUtf8()) {
-        name_ = s;
-      }
-      return s;
-    }
-  }
-  /**
-   * <code>optional string name = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int UNIQUE_ID_FIELD_NUMBER = 2;
+  public static final int UNIQUE_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object uniqueId_;
   /**
-   * <code>optional string unique_id = 2;</code>
+   * <code>optional string unique_id = 1;</code>
    */
   public java.lang.String getUniqueId() {
     java.lang.Object ref = uniqueId_;
@@ -154,7 +117,7 @@ public  final class User extends
     }
   }
   /**
-   * <code>optional string unique_id = 2;</code>
+   * <code>optional string unique_id = 1;</code>
    */
   public com.google.protobuf.ByteString
       getUniqueIdBytes() {
@@ -170,10 +133,10 @@ public  final class User extends
     }
   }
 
-  public static final int RANK_FIELD_NUMBER = 3;
+  public static final int RANK_FIELD_NUMBER = 2;
   private volatile java.lang.Object rank_;
   /**
-   * <code>optional string rank = 3;</code>
+   * <code>optional string rank = 2;</code>
    */
   public java.lang.String getRank() {
     java.lang.Object ref = rank_;
@@ -190,7 +153,7 @@ public  final class User extends
     }
   }
   /**
-   * <code>optional string rank = 3;</code>
+   * <code>optional string rank = 2;</code>
    */
   public com.google.protobuf.ByteString
       getRankBytes() {
@@ -206,22 +169,31 @@ public  final class User extends
     }
   }
 
-  public static final int COINS_FIELD_NUMBER = 4;
+  public static final int COINS_FIELD_NUMBER = 3;
   private long coins_;
   /**
-   * <code>optional int64 coins = 4;</code>
+   * <code>optional int64 coins = 3;</code>
    */
   public long getCoins() {
     return coins_;
   }
 
-  public static final int WINS_FIELD_NUMBER = 5;
+  public static final int WINS_FIELD_NUMBER = 4;
   private long wins_;
   /**
-   * <code>optional int64 wins = 5;</code>
+   * <code>optional int64 wins = 4;</code>
    */
   public long getWins() {
     return wins_;
+  }
+
+  public static final int BAN_POINTS_FIELD_NUMBER = 5;
+  private long banPoints_;
+  /**
+   * <code>optional int64 ban_points = 5;</code>
+   */
+  public long getBanPoints() {
+    return banPoints_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -236,20 +208,20 @@ public  final class User extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
-      output.writeBytes(1, getNameBytes());
-    }
     if (!getUniqueIdBytes().isEmpty()) {
-      output.writeBytes(2, getUniqueIdBytes());
+      output.writeBytes(1, getUniqueIdBytes());
     }
     if (!getRankBytes().isEmpty()) {
-      output.writeBytes(3, getRankBytes());
+      output.writeBytes(2, getRankBytes());
     }
     if (coins_ != 0L) {
-      output.writeInt64(4, coins_);
+      output.writeInt64(3, coins_);
     }
     if (wins_ != 0L) {
-      output.writeInt64(5, wins_);
+      output.writeInt64(4, wins_);
+    }
+    if (banPoints_ != 0L) {
+      output.writeInt64(5, banPoints_);
     }
   }
 
@@ -259,25 +231,25 @@ public  final class User extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(1, getNameBytes());
-    }
     if (!getUniqueIdBytes().isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, getUniqueIdBytes());
+        .computeBytesSize(1, getUniqueIdBytes());
     }
     if (!getRankBytes().isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(3, getRankBytes());
+        .computeBytesSize(2, getRankBytes());
     }
     if (coins_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, coins_);
+        .computeInt64Size(3, coins_);
     }
     if (wins_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, wins_);
+        .computeInt64Size(4, wins_);
+    }
+    if (banPoints_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, banPoints_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -390,8 +362,6 @@ public  final class User extends
     }
     public Builder clear() {
       super.clear();
-      name_ = "";
-
       uniqueId_ = "";
 
       rank_ = "";
@@ -399,6 +369,8 @@ public  final class User extends
       coins_ = 0L;
 
       wins_ = 0L;
+
+      banPoints_ = 0L;
 
       return this;
     }
@@ -422,11 +394,11 @@ public  final class User extends
 
     public com.gitlab.leonklein.user.User buildPartial() {
       com.gitlab.leonklein.user.User result = new com.gitlab.leonklein.user.User(this);
-      result.name_ = name_;
       result.uniqueId_ = uniqueId_;
       result.rank_ = rank_;
       result.coins_ = coins_;
       result.wins_ = wins_;
+      result.banPoints_ = banPoints_;
       onBuilt();
       return result;
     }
@@ -442,10 +414,6 @@ public  final class User extends
 
     public Builder mergeFrom(com.gitlab.leonklein.user.User other) {
       if (other == com.gitlab.leonklein.user.User.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
-      }
       if (!other.getUniqueId().isEmpty()) {
         uniqueId_ = other.uniqueId_;
         onChanged();
@@ -459,6 +427,9 @@ public  final class User extends
       }
       if (other.getWins() != 0L) {
         setWins(other.getWins());
+      }
+      if (other.getBanPoints() != 0L) {
+        setBanPoints(other.getBanPoints());
       }
       onChanged();
       return this;
@@ -486,79 +457,9 @@ public  final class User extends
       return this;
     }
 
-    private java.lang.Object name_ = "";
-    /**
-     * <code>optional string name = 1;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>optional string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string name = 1;</code>
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string name = 1;</code>
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string name = 1;</code>
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object uniqueId_ = "";
     /**
-     * <code>optional string unique_id = 2;</code>
+     * <code>optional string unique_id = 1;</code>
      */
     public java.lang.String getUniqueId() {
       java.lang.Object ref = uniqueId_;
@@ -575,7 +476,7 @@ public  final class User extends
       }
     }
     /**
-     * <code>optional string unique_id = 2;</code>
+     * <code>optional string unique_id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getUniqueIdBytes() {
@@ -591,7 +492,7 @@ public  final class User extends
       }
     }
     /**
-     * <code>optional string unique_id = 2;</code>
+     * <code>optional string unique_id = 1;</code>
      */
     public Builder setUniqueId(
         java.lang.String value) {
@@ -604,7 +505,7 @@ public  final class User extends
       return this;
     }
     /**
-     * <code>optional string unique_id = 2;</code>
+     * <code>optional string unique_id = 1;</code>
      */
     public Builder clearUniqueId() {
       
@@ -613,7 +514,7 @@ public  final class User extends
       return this;
     }
     /**
-     * <code>optional string unique_id = 2;</code>
+     * <code>optional string unique_id = 1;</code>
      */
     public Builder setUniqueIdBytes(
         com.google.protobuf.ByteString value) {
@@ -628,7 +529,7 @@ public  final class User extends
 
     private java.lang.Object rank_ = "";
     /**
-     * <code>optional string rank = 3;</code>
+     * <code>optional string rank = 2;</code>
      */
     public java.lang.String getRank() {
       java.lang.Object ref = rank_;
@@ -645,7 +546,7 @@ public  final class User extends
       }
     }
     /**
-     * <code>optional string rank = 3;</code>
+     * <code>optional string rank = 2;</code>
      */
     public com.google.protobuf.ByteString
         getRankBytes() {
@@ -661,7 +562,7 @@ public  final class User extends
       }
     }
     /**
-     * <code>optional string rank = 3;</code>
+     * <code>optional string rank = 2;</code>
      */
     public Builder setRank(
         java.lang.String value) {
@@ -674,7 +575,7 @@ public  final class User extends
       return this;
     }
     /**
-     * <code>optional string rank = 3;</code>
+     * <code>optional string rank = 2;</code>
      */
     public Builder clearRank() {
       
@@ -683,7 +584,7 @@ public  final class User extends
       return this;
     }
     /**
-     * <code>optional string rank = 3;</code>
+     * <code>optional string rank = 2;</code>
      */
     public Builder setRankBytes(
         com.google.protobuf.ByteString value) {
@@ -698,13 +599,13 @@ public  final class User extends
 
     private long coins_ ;
     /**
-     * <code>optional int64 coins = 4;</code>
+     * <code>optional int64 coins = 3;</code>
      */
     public long getCoins() {
       return coins_;
     }
     /**
-     * <code>optional int64 coins = 4;</code>
+     * <code>optional int64 coins = 3;</code>
      */
     public Builder setCoins(long value) {
       
@@ -713,7 +614,7 @@ public  final class User extends
       return this;
     }
     /**
-     * <code>optional int64 coins = 4;</code>
+     * <code>optional int64 coins = 3;</code>
      */
     public Builder clearCoins() {
       
@@ -724,13 +625,13 @@ public  final class User extends
 
     private long wins_ ;
     /**
-     * <code>optional int64 wins = 5;</code>
+     * <code>optional int64 wins = 4;</code>
      */
     public long getWins() {
       return wins_;
     }
     /**
-     * <code>optional int64 wins = 5;</code>
+     * <code>optional int64 wins = 4;</code>
      */
     public Builder setWins(long value) {
       
@@ -739,11 +640,37 @@ public  final class User extends
       return this;
     }
     /**
-     * <code>optional int64 wins = 5;</code>
+     * <code>optional int64 wins = 4;</code>
      */
     public Builder clearWins() {
       
       wins_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long banPoints_ ;
+    /**
+     * <code>optional int64 ban_points = 5;</code>
+     */
+    public long getBanPoints() {
+      return banPoints_;
+    }
+    /**
+     * <code>optional int64 ban_points = 5;</code>
+     */
+    public Builder setBanPoints(long value) {
+      
+      banPoints_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int64 ban_points = 5;</code>
+     */
+    public Builder clearBanPoints() {
+      
+      banPoints_ = 0L;
       onChanged();
       return this;
     }

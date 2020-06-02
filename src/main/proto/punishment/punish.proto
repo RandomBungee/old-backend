@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package punishment;
+
+option java_package = "com.gitlab.leonklein.punishment";
+option java_multiple_files = true;
+
+message Punish {
+  string name = 1;
+  string unique_id = 2;
+  string reason = 3;
+  string banned_by = 4;
+  int64 end = 5;
+}

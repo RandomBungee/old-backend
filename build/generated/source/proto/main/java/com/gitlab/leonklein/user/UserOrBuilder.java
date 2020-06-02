@@ -8,42 +8,37 @@ public interface UserOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional string name = 1;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>optional string name = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
-
-  /**
-   * <code>optional string unique_id = 2;</code>
+   * <code>optional string unique_id = 1;</code>
    */
   java.lang.String getUniqueId();
   /**
-   * <code>optional string unique_id = 2;</code>
+   * <code>optional string unique_id = 1;</code>
    */
   com.google.protobuf.ByteString
       getUniqueIdBytes();
 
   /**
-   * <code>optional string rank = 3;</code>
+   * <code>optional string rank = 2;</code>
    */
   java.lang.String getRank();
   /**
-   * <code>optional string rank = 3;</code>
+   * <code>optional string rank = 2;</code>
    */
   com.google.protobuf.ByteString
       getRankBytes();
 
   /**
-   * <code>optional int64 coins = 4;</code>
+   * <code>optional int64 coins = 3;</code>
    */
   long getCoins();
 
   /**
-   * <code>optional int64 wins = 5;</code>
+   * <code>optional int64 wins = 4;</code>
    */
   long getWins();
+
+  /**
+   * <code>optional int64 ban_points = 5;</code>
+   */
+  long getBanPoints();
 }

@@ -15,6 +15,7 @@ public  final class FindUserRequest extends
     super(builder);
   }
   private FindUserRequest() {
+    uniqueId_ = "";
   }
 
   @java.lang.Override
@@ -42,16 +43,9 @@ public  final class FindUserRequest extends
             break;
           }
           case 10: {
-            com.gitlab.leonklein.user.User.Builder subBuilder = null;
-            if (user_ != null) {
-              subBuilder = user_.toBuilder();
-            }
-            user_ = input.readMessage(com.gitlab.leonklein.user.User.PARSER, extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(user_);
-              user_ = subBuilder.buildPartial();
-            }
+            com.google.protobuf.ByteString bs = input.readBytes();
 
+            uniqueId_ = bs;
             break;
           }
         }
@@ -78,25 +72,40 @@ public  final class FindUserRequest extends
             com.gitlab.leonklein.user.FindUserRequest.class, com.gitlab.leonklein.user.FindUserRequest.Builder.class);
   }
 
-  public static final int USER_FIELD_NUMBER = 1;
-  private com.gitlab.leonklein.user.User user_;
+  public static final int UNIQUE_ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object uniqueId_;
   /**
-   * <code>optional .user.User user = 1;</code>
+   * <code>optional string unique_id = 1;</code>
    */
-  public boolean hasUser() {
-    return user_ != null;
+  public java.lang.String getUniqueId() {
+    java.lang.Object ref = uniqueId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      if (bs.isValidUtf8()) {
+        uniqueId_ = s;
+      }
+      return s;
+    }
   }
   /**
-   * <code>optional .user.User user = 1;</code>
+   * <code>optional string unique_id = 1;</code>
    */
-  public com.gitlab.leonklein.user.User getUser() {
-    return user_ == null ? com.gitlab.leonklein.user.User.getDefaultInstance() : user_;
-  }
-  /**
-   * <code>optional .user.User user = 1;</code>
-   */
-  public com.gitlab.leonklein.user.UserOrBuilder getUserOrBuilder() {
-    return getUser();
+  public com.google.protobuf.ByteString
+      getUniqueIdBytes() {
+    java.lang.Object ref = uniqueId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      uniqueId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -111,8 +120,8 @@ public  final class FindUserRequest extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (user_ != null) {
-      output.writeMessage(1, getUser());
+    if (!getUniqueIdBytes().isEmpty()) {
+      output.writeBytes(1, getUniqueIdBytes());
     }
   }
 
@@ -122,9 +131,9 @@ public  final class FindUserRequest extends
     if (size != -1) return size;
 
     size = 0;
-    if (user_ != null) {
+    if (!getUniqueIdBytes().isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getUser());
+        .computeBytesSize(1, getUniqueIdBytes());
     }
     memoizedSerializedSize = size;
     return size;
@@ -237,12 +246,8 @@ public  final class FindUserRequest extends
     }
     public Builder clear() {
       super.clear();
-      if (userBuilder_ == null) {
-        user_ = null;
-      } else {
-        user_ = null;
-        userBuilder_ = null;
-      }
+      uniqueId_ = "";
+
       return this;
     }
 
@@ -265,11 +270,7 @@ public  final class FindUserRequest extends
 
     public com.gitlab.leonklein.user.FindUserRequest buildPartial() {
       com.gitlab.leonklein.user.FindUserRequest result = new com.gitlab.leonklein.user.FindUserRequest(this);
-      if (userBuilder_ == null) {
-        result.user_ = user_;
-      } else {
-        result.user_ = userBuilder_.build();
-      }
+      result.uniqueId_ = uniqueId_;
       onBuilt();
       return result;
     }
@@ -285,8 +286,9 @@ public  final class FindUserRequest extends
 
     public Builder mergeFrom(com.gitlab.leonklein.user.FindUserRequest other) {
       if (other == com.gitlab.leonklein.user.FindUserRequest.getDefaultInstance()) return this;
-      if (other.hasUser()) {
-        mergeUser(other.getUser());
+      if (!other.getUniqueId().isEmpty()) {
+        uniqueId_ = other.uniqueId_;
+        onChanged();
       }
       onChanged();
       return this;
@@ -314,121 +316,74 @@ public  final class FindUserRequest extends
       return this;
     }
 
-    private com.gitlab.leonklein.user.User user_ = null;
-    private com.google.protobuf.SingleFieldBuilder<
-        com.gitlab.leonklein.user.User, com.gitlab.leonklein.user.User.Builder, com.gitlab.leonklein.user.UserOrBuilder> userBuilder_;
+    private java.lang.Object uniqueId_ = "";
     /**
-     * <code>optional .user.User user = 1;</code>
+     * <code>optional string unique_id = 1;</code>
      */
-    public boolean hasUser() {
-      return userBuilder_ != null || user_ != null;
-    }
-    /**
-     * <code>optional .user.User user = 1;</code>
-     */
-    public com.gitlab.leonklein.user.User getUser() {
-      if (userBuilder_ == null) {
-        return user_ == null ? com.gitlab.leonklein.user.User.getDefaultInstance() : user_;
-      } else {
-        return userBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>optional .user.User user = 1;</code>
-     */
-    public Builder setUser(com.gitlab.leonklein.user.User value) {
-      if (userBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
+    public java.lang.String getUniqueId() {
+      java.lang.Object ref = uniqueId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          uniqueId_ = s;
         }
-        user_ = value;
-        onChanged();
+        return s;
       } else {
-        userBuilder_.setMessage(value);
+        return (java.lang.String) ref;
       }
-
-      return this;
     }
     /**
-     * <code>optional .user.User user = 1;</code>
+     * <code>optional string unique_id = 1;</code>
      */
-    public Builder setUser(
-        com.gitlab.leonklein.user.User.Builder builderForValue) {
-      if (userBuilder_ == null) {
-        user_ = builderForValue.build();
-        onChanged();
+    public com.google.protobuf.ByteString
+        getUniqueIdBytes() {
+      java.lang.Object ref = uniqueId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uniqueId_ = b;
+        return b;
       } else {
-        userBuilder_.setMessage(builderForValue.build());
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>optional .user.User user = 1;</code>
+     * <code>optional string unique_id = 1;</code>
      */
-    public Builder mergeUser(com.gitlab.leonklein.user.User value) {
-      if (userBuilder_ == null) {
-        if (user_ != null) {
-          user_ =
-            com.gitlab.leonklein.user.User.newBuilder(user_).mergeFrom(value).buildPartial();
-        } else {
-          user_ = value;
-        }
-        onChanged();
-      } else {
-        userBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>optional .user.User user = 1;</code>
-     */
-    public Builder clearUser() {
-      if (userBuilder_ == null) {
-        user_ = null;
-        onChanged();
-      } else {
-        user_ = null;
-        userBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>optional .user.User user = 1;</code>
-     */
-    public com.gitlab.leonklein.user.User.Builder getUserBuilder() {
-      
+    public Builder setUniqueId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      uniqueId_ = value;
       onChanged();
-      return getUserFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>optional .user.User user = 1;</code>
+     * <code>optional string unique_id = 1;</code>
      */
-    public com.gitlab.leonklein.user.UserOrBuilder getUserOrBuilder() {
-      if (userBuilder_ != null) {
-        return userBuilder_.getMessageOrBuilder();
-      } else {
-        return user_ == null ?
-            com.gitlab.leonklein.user.User.getDefaultInstance() : user_;
-      }
+    public Builder clearUniqueId() {
+      
+      uniqueId_ = getDefaultInstance().getUniqueId();
+      onChanged();
+      return this;
     }
     /**
-     * <code>optional .user.User user = 1;</code>
+     * <code>optional string unique_id = 1;</code>
      */
-    private com.google.protobuf.SingleFieldBuilder<
-        com.gitlab.leonklein.user.User, com.gitlab.leonklein.user.User.Builder, com.gitlab.leonklein.user.UserOrBuilder> 
-        getUserFieldBuilder() {
-      if (userBuilder_ == null) {
-        userBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            com.gitlab.leonklein.user.User, com.gitlab.leonklein.user.User.Builder, com.gitlab.leonklein.user.UserOrBuilder>(
-                getUser(),
-                getParentForChildren(),
-                isClean());
-        user_ = null;
-      }
-      return userBuilder_;
+    public Builder setUniqueIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      uniqueId_ = value;
+      onChanged();
+      return this;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

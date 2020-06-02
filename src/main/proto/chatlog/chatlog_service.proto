@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package group;
+
+option java_package = "com.gitlab.leonklein.chatlog";
+option java_multiple_files = true;
+
+import "chatlog/chatlog.proto";
+
+message CreateChatlogRequest {
+  Chatlog chatlog = 1;
+}
+
+message CreateChatlogResponse {
+  Chatlog chatlog = 1;
+}
+
+message DeleteChatlogRequest {
+  Chatlog chatlog = 1;
+}
+
+message DeleteChatlogResponse {
+  Chatlog chatlog = 1;
+}
+
+message ListChatlogRequest {
+  string server = 1;
+}
+
+message ListChatlogResponse {
+  repeated string messages = 1;
+}
+
+service ChatlogService {
+  rpc Create(CreateChatlogRequest) returns (CreateChatlogResponse);
+  rpc Delete(DeleteChatlogRequest) returns (DeleteChatlogResponse);
+  rpc List(ListChatlogRequest) returns (ListChatlogResponse);
+}

@@ -1,11 +1,17 @@
 package com.gitlab.leonklein.user;
 
+import com.gitlab.leonklein.group.FindGroupResponse;
+import com.gitlab.leonklein.group.Group;
+import com.gitlab.leonklein.sql.Mysql;
+import com.mysql.jdbc.MySQLConnection;
 import io.grpc.stub.StreamObserver;
+import java.util.List;
+import java.util.Optional;
 
 public class UserService extends UserServiceGrpc.UserServiceImplBase {
   private final UserRepository userRepository;
 
-  private UserService() { this.userRepository = InMemoryUserRepository.create(); }
+  private UserService() { this.userRepository = SqlUserRepository.create(Mysql.connection); }
 
   @Override
   public void create(
@@ -53,12 +59,44 @@ public class UserService extends UserServiceGrpc.UserServiceImplBase {
       FindUserRequest request,
       StreamObserver<FindUserResponde> responseObserver
   ) {
-
+    String uniqueId = request.getUniqueId();
+    Optional<User> optionalUser = userRepository.find(uniqueId);
+    User user = optionalUser.orElse(noSuchUser());
+    FindUserResponde userResponde = findUserResponde(user);
+    responseObserver.onNext(userResponde);
+    responseObserver.onCompleted();
   }
 
   private FindUserResponde findUserResponde(User user) {
     return FindUserResponde.newBuilder()
         .setUser(user)
+        .build();
+  }
+
+  private User noSuchUser() {
+    return User.newBuilder()
+        .setUniqueId("")
+        .setCoins(0)
+        .setBanPoints(0)
+        .setRank("")
+        .setWins(0)
+        .build();
+  }
+
+  @Override
+  public void list(
+      ListUserRequest request,
+      StreamObserver<ListUserResponse> responseObserver
+  ) {
+    List<User> users = userRepository.list();
+    ListUserResponse response = listUserResponse(users);
+    responseObserver.onNext(response);
+    responseObserver.onCompleted();
+  }
+
+  private ListUserResponse listUserResponse(List<User> users) {
+    return ListUserResponse.newBuilder()
+        .addAllUser(users)
         .build();
   }
 

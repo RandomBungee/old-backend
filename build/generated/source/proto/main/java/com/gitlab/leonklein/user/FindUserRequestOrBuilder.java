@@ -8,15 +8,12 @@ public interface FindUserRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional .user.User user = 1;</code>
+   * <code>optional string unique_id = 1;</code>
    */
-  boolean hasUser();
+  java.lang.String getUniqueId();
   /**
-   * <code>optional .user.User user = 1;</code>
+   * <code>optional string unique_id = 1;</code>
    */
-  com.gitlab.leonklein.user.User getUser();
-  /**
-   * <code>optional .user.User user = 1;</code>
-   */
-  com.gitlab.leonklein.user.UserOrBuilder getUserOrBuilder();
+  com.google.protobuf.ByteString
+      getUniqueIdBytes();
 }

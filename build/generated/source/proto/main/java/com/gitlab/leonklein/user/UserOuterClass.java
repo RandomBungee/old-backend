@@ -22,10 +22,10 @@ public final class UserOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017user/user.proto\022\004user\"R\n\004User\022\014\n\004name\030" +
-      "\001 \001(\t\022\021\n\tunique_id\030\002 \001(\t\022\014\n\004rank\030\003 \001(\t\022\r" +
-      "\n\005coins\030\004 \001(\003\022\014\n\004wins\030\005 \001(\003B\035\n\031com.gitla" +
-      "b.leonklein.userP\001b\006proto3"
+      "\n\017user/user.proto\022\004user\"X\n\004User\022\021\n\tuniqu" +
+      "e_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\t\022\r\n\005coins\030\003 \001(\003\022" +
+      "\014\n\004wins\030\004 \001(\003\022\022\n\nban_points\030\005 \001(\003B\035\n\031com" +
+      ".gitlab.leonklein.userP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -44,7 +44,7 @@ public final class UserOuterClass {
     internal_static_user_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_user_User_descriptor,
-        new java.lang.String[] { "Name", "UniqueId", "Rank", "Coins", "Wins", });
+        new java.lang.String[] { "UniqueId", "Rank", "Coins", "Wins", "BanPoints", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
