@@ -106,6 +106,6 @@ public class SqlUserRepository implements UserRepository {
   private void updateAndCloseStatement(PreparedStatement preparedStatement) throws SQLException {
     preparedStatement.executeUpdate();
     preparedStatement.close();
-    System.out.println("Statement updated and closed!");
+    System.out.println("Statement was updated and closed!");
   }
 }

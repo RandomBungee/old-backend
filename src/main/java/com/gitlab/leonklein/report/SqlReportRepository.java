@@ -29,7 +29,7 @@ public class SqlReportRepository implements ReportRepository {
   ) throws SQLException {
     preparedStatement.setString(1, report.getReported());
     preparedStatement.setString(2, report.getServer());
-    preparedStatement.setString(3, report.getReported());
+    preparedStatement.setString(3, report.getReason());
     preparedStatement.setString(4, report.getReportedBy());
     updateAndCloseStatement(preparedStatement);
   }
@@ -110,6 +110,6 @@ public class SqlReportRepository implements ReportRepository {
   private void updateAndCloseStatement(PreparedStatement preparedStatement) throws SQLException {
     preparedStatement.executeUpdate();
     preparedStatement.close();
-    System.err.println("Can´t finish Statement because of an error in SQL-Statement");
+    System.out.println("Statement was updated and closed!");
   }
 }

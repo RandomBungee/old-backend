@@ -20,7 +20,7 @@ message FindPunishRequest {
 }
 
 message FindPunishResponse {
-  repeated Punish punish = 1;
+  Punish punish = 1;
 }
 
 message DeletePunishRequest {

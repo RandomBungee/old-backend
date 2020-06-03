@@ -125,6 +125,6 @@ public class SqlPunishRepository implements PunishRepository {
   private void updateAndCloseStatement(PreparedStatement preparedStatement) throws SQLException {
     preparedStatement.executeUpdate();
     preparedStatement.close();
-    System.err.println("Can´t finish Statement because of an error in SQL-Statement");
+    System.out.println("Statement was updated and closed!");
   }
 }

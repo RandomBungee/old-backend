@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.property.ReadOnlySetProperty;
 
 public class SqlChatlogRepository implements ChatlogRepository {
   private final Connection CONNECTION;
@@ -45,17 +44,17 @@ public class SqlChatlogRepository implements ChatlogRepository {
     StringBuilder stringMessageBuilder = new StringBuilder();
     for(String messages : messagesList) {
       stringMessageBuilder.append(messages);
-      stringMessageBuilder.append(" ");
+      stringMessageBuilder.append(", ");
     }
     return stringMessageBuilder.toString();
   }
 
   @Override
-  public void delete(String reported) {
+  public void delete(String server) {
     try {
       PreparedStatement preparedStatement =
-          CONNECTION.prepareStatement("DELETE FROM chatlog WHERE reported = ?");
-      deleteStatement(preparedStatement, reported);
+          CONNECTION.prepareStatement("DELETE FROM chatlog WHERE game_server = ?");
+      deleteStatement(preparedStatement, server);
     } catch (SQLException deleteStatementFail) {
       System.err.println("Can´t delete Chatlog: " + deleteStatementFail.getMessage());
     }
@@ -63,9 +62,9 @@ public class SqlChatlogRepository implements ChatlogRepository {
 
   private void deleteStatement(
       PreparedStatement preparedStatement,
-      String reported
+      String server
   ) throws SQLException {
-    preparedStatement.setString(1, reported);
+    preparedStatement.setString(1, server);
     updateAndCloseStatement(preparedStatement);
   }
 

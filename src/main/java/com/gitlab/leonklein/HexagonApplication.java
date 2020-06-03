@@ -1,5 +1,7 @@
 package com.gitlab.leonklein;
 
+import com.gitlab.leonklein.chatlog.Chatlog;
+import com.gitlab.leonklein.chatlog.ChatlogService;
 import com.gitlab.leonklein.group.GroupService;
 import com.gitlab.leonklein.punishment.PunishService;
 import com.gitlab.leonklein.report.ReportService;
@@ -23,6 +25,7 @@ public class HexagonApplication {
         .addService(PunishService.create())
         .addService(ReportService.create())
         .addService(UserService.create())
+        .addService(ChatlogService.create())
         .build();
     server.start();
     server.awaitTermination();
