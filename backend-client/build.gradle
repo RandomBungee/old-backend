@@ -7,11 +7,16 @@ buildscript {
     }
 }
 
-group 'com.gitlab.leonklein'
-version '1.0.0'
+plugins {
+    id 'com.google.protobuf'
+    id 'maven'
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id "maven-publish"
+}
 
-apply plugin: 'com.google.protobuf'
-apply plugin: 'java'
+group 'com.gitlab.leonklein.client'
+version '1.0.0'
 
 repositories {
     google()
@@ -42,6 +47,29 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
 }
 
+
+shadowJar {
+    baseName = "backend-client"
+    classifier = ''
+    archiveVersion = "1.0.0"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact shadowJar
+            repositories {
+                maven {
+                    credentials {
+                        username "admin"
+                        password "Epe7UOQ3"
+                    }
+                    url = uri("http://91.218.67.31:9081/repository/maven-releases/")
+                }
+            }
+        }
+    }
+}
 
 sourceSets {
     main {
