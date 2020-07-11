@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package user;
+
+option java_package = "com.gitlab.leonklein.user";
+option java_multiple_files = true;
+
+message TeamUser {
+  int64 total_bans = 1;
+  int64 total_mutes = 2;
+  int64 total_reports = 3;
+  int64 total_report_accept = 4;
+  int64 total_report_denied = 5;
+  int64 total_wrongbans = 6;
+  int64 total_wrongmutes = 7;
+  int32 admission = 8;
+  string unique_id = 9;
+}

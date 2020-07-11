@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package punishment;
+
+option java_package = "com.gitlab.leonklein.punishment";
+option java_multiple_files = true;
+
+import "punishment/punish.proto";
+
+message CreatePunishRequest {
+  Punish punish = 1;
+}
+
+message CreatePunishResponse {
+  Punish punish = 1;
+}
+
+message FindPunishRequest {
+  string unique_id = 1;
+}
+
+message FindPunishResponse {
+  Punish punish = 1;
+}
+
+message DeletePunishRequest {
+  string unique_id = 1;
+}
+
+message DeletePunishResponse {
+  string unique_id = 1;
+}
+
+message ChangePunishRequest {
+  Punish punish = 1;
+}
+
+message ChangePunishResponse {
+  Punish punish = 1;
+}
+
+service PunishService {
+  rpc Create(CreatePunishRequest) returns (CreatePunishResponse);
+  rpc Find(FindPunishRequest) returns (FindPunishResponse);
+  rpc Delete(DeletePunishRequest) returns (DeletePunishResponse);
+  rpc Change(ChangePunishRequest) returns (ChangePunishResponse);
+}

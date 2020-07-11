@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package group;
+
+option java_package = "com.gitlab.leonklein.group";
+option java_multiple_files = true;
+
+message Group {
+  string name = 1;
+  repeated string permissions = 2;
+}

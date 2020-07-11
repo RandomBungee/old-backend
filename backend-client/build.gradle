@@ -10,10 +10,8 @@ buildscript {
 group 'com.gitlab.leonklein'
 version '1.0.0'
 
-
-apply plugin: 'java'
-apply plugin: 'maven'
 apply plugin: 'com.google.protobuf'
+apply plugin: 'java'
 
 repositories {
     google()
@@ -23,20 +21,25 @@ repositories {
 
 configurations {
     included
+    extraLibs
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:28.0-jre'
-    implementation 'com.google.protobuf:protobuf-java:3.5.1'
+    compile project(':backend')
+    compile 'com.google.guava:guava:28.0-jre'
+    compile 'com.google.protobuf:protobuf-java:3.5.1'
 
-    implementation 'io.grpc:grpc-stub:1.29.0'
-    implementation 'io.grpc:grpc-netty:1.29.0'
-    implementation 'io.grpc:grpc-protobuf:1.29.0'
-    implementation 'io.grpc:grpc-services:1.29.0'
+    compile 'io.grpc:grpc-stub:1.29.0'
+    compile 'io.grpc:grpc-netty:1.29.0'
+    compile 'io.grpc:grpc-protobuf:1.29.0'
+    compile 'io.grpc:grpc-services:1.29.0'
+    compile group: 'io.grpc', name: 'grpc-okhttp', version: '1.29.0'
 
     testImplementation 'junit:junit:4.12'
 
     configurations.implementation.extendsFrom(configurations.included)
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
 }
 
 
@@ -74,7 +77,12 @@ protobuf {
 }
 
 jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.gitlab.leonklein.client.Client'
+        )
+    }
     from {
-        configurations.included.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }

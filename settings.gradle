@@ -1,3 +1,6 @@
 rootProject.name = 'backend-parent'
 include 'backend-client'
+include 'bakend-api'
+include 'backend'
+include 'backend-server'
 

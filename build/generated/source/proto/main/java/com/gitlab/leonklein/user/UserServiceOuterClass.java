@@ -62,20 +62,22 @@ public final class UserServiceOuterClass {
       "\001(\0132\n.user.User\".\n\022CreateUserResponse\022\030\n" +
       "\004user\030\001 \001(\0132\n.user.User\"X\n\021UpdateUserReq" +
       "uest\022\030\n\004user\030\001 \001(\0132\n.user.User\022\014\n\004rank\030\002" +
-      " \001(\t\022\r\n\005coins\030\003 \001(\003\022\014\n\004wins\030\004 \001(\003\"Y\n\022Upd" +
-      "ateUserResponse\022\030\n\004user\030\001 \001(\0132\n.user.Use" +
-      "r\022\014\n\004rank\030\002 \001(\t\022\r\n\005coins\030\003 \001(\003\022\014\n\004wins\030\004" +
-      " \001(\003\"$\n\017FindUserRequest\022\021\n\tunique_id\030\001 \001" +
-      "(\t\",\n\020FindUserResponde\022\030\n\004user\030\001 \001(\0132\n.u",
-      "ser.User\"\021\n\017ListUserRequest\",\n\020ListUserR" +
-      "esponse\022\030\n\004user\030\001 \003(\0132\n.user.User2\365\001\n\013Us" +
-      "erService\022;\n\006Create\022\027.user.CreateUserReq" +
-      "uest\032\030.user.CreateUserResponse\022;\n\006Update" +
-      "\022\027.user.UpdateUserRequest\032\030.user.UpdateU" +
-      "serResponse\0225\n\004Find\022\025.user.FindUserReque" +
-      "st\032\026.user.FindUserResponde\0225\n\004List\022\025.use" +
-      "r.ListUserRequest\032\026.user.ListUserRespons" +
-      "eB\035\n\031com.gitlab.leonklein.userP\001b\006proto3"
+      " \001(\t\022\r\n\005coins\030\003 \001(\003\022\014\n\004wins\030\004 \001(\003\"\234\001\n\022Up" +
+      "dateUserResponse\022\030\n\004user\030\001 \001(\0132\n.user.Us" +
+      "er\022\014\n\004rank\030\002 \001(\t\022\r\n\005coins\030\003 \001(\003\022\014\n\004wins\030" +
+      "\004 \001(\003\022\023\n\013ban_history\030\005 \003(\t\022\027\n\017teamspek_u" +
+      "nique\030\006 \001(\t\022\023\n\013discord_tag\030\007 \001(\t\"$\n\017Find",
+      "UserRequest\022\021\n\tunique_id\030\001 \001(\t\",\n\020FindUs" +
+      "erResponde\022\030\n\004user\030\001 \001(\0132\n.user.User\"\021\n\017" +
+      "ListUserRequest\",\n\020ListUserResponse\022\030\n\004u" +
+      "ser\030\001 \003(\0132\n.user.User2\365\001\n\013UserService\022;\n" +
+      "\006Create\022\027.user.CreateUserRequest\032\030.user." +
+      "CreateUserResponse\022;\n\006Update\022\027.user.Upda" +
+      "teUserRequest\032\030.user.UpdateUserResponse\022" +
+      "5\n\004Find\022\025.user.FindUserRequest\032\026.user.Fi" +
+      "ndUserResponde\0225\n\004List\022\025.user.ListUserRe" +
+      "quest\032\026.user.ListUserResponseB\035\n\031com.git",
+      "lab.leonklein.userP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -113,7 +115,7 @@ public final class UserServiceOuterClass {
     internal_static_user_UpdateUserResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_user_UpdateUserResponse_descriptor,
-        new java.lang.String[] { "User", "Rank", "Coins", "Wins", });
+        new java.lang.String[] { "User", "Rank", "Coins", "Wins", "BanHistory", "TeamspekUnique", "DiscordTag", });
     internal_static_user_FindUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_user_FindUserRequest_fieldAccessorTable = new
