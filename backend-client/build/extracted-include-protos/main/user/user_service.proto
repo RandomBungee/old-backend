@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option java_package = "com.gitlab.leonklein.user";
+option java_package = "de.flamefoxes.user";
 option java_multiple_files = true;
 
 import "user/user.proto";
@@ -27,6 +27,7 @@ message UpdateUserResponse {
   repeated string ban_history = 5;
   string teamspek_unique = 6;
   string discord_tag = 7;
+  bool isBanned = 8;
 }
 
 message FindUserRequest {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package punishment;
 
-option java_package = "com.gitlab.leonklein.punishment";
+option java_package = "de.flamefoxes.punishment";
 option java_multiple_files = true;
 
 import "punishment/punish.proto";

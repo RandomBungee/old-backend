@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option java_package = "com.gitlab.leonklein.user";
+option java_package = "de.flamefoxes.user";
 option java_multiple_files = true;
 
 message User {
@@ -14,4 +14,5 @@ message User {
   repeated string ban_history = 6;
   string teamspeak_unique = 7;
   string discord_tag = 8;
+  bool isBanned = 9;
 }

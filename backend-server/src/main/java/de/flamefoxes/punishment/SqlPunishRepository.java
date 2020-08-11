@@ -18,6 +18,7 @@ public final class SqlPunishRepository implements PunishRepository {
           connection.prepareStatement(
           "INSERT INTO bans (name,unique_id,reason,banned_by,end) VALUES (?,?,?,?,?)"
       );
+      insertStatement(preparedStatement, punish);
     } catch (SQLException createStatementFail) {
       System.err.println("Can´t create Punish: " + createStatementFail.getMessage());
     }
@@ -110,15 +111,14 @@ public final class SqlPunishRepository implements PunishRepository {
   }
 
   private long punishTime(Punish punish) {
-    long end = 0L;
+    long end;
     if(punish.getEnd() == -1) {
-      end = -1;
+      return -1;
     } else {
       long current = System.currentTimeMillis();
       long millis = punish.getEnd() * 1000;
-      end = current + millis;
+      return current + millis;
     }
-    return end;
   }
 
   private void updateAndCloseStatement(PreparedStatement preparedStatement) throws SQLException {

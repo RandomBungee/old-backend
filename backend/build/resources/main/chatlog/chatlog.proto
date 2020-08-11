@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package group;
 
-option java_package = "com.gitlab.leonklein.chatlog";
+option java_package = "de.flamefoxes.chatlog";
 option java_multiple_files = true;
 
 message Chatlog {

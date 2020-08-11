@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package group;
 
-option java_package = "com.gitlab.leonklein.group";
+option java_package = "de.flamefoxes.group";
 option java_multiple_files = true;
 
 import "group/group.proto";

@@ -84,6 +84,13 @@ public class Mysql {
               + " totoal_report_denied INT,"
               + " admission INT)")
           .executeUpdate();
+      connection.
+          prepareStatement("CREATE TABLE IF NOT EXISTS mutes(name VARCHAR(100),"
+              + " unique_id VARCHAR(100),"
+              + " reason VARCHAR(100),"
+              + " muted_by VARCHAR(100),"
+              + " end INT)")
+          .executeUpdate();
       System.out.println("Table was successfully created in Database!");
     } catch (SQLException createTableFail) {
       System.err.println("Can´t create table: " + createTableFail.getMessage());

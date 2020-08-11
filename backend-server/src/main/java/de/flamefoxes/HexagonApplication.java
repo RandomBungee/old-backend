@@ -2,6 +2,7 @@ package de.flamefoxes;
 
 import de.flamefoxes.chatlog.ChatlogService;
 import de.flamefoxes.group.GroupService;
+import de.flamefoxes.punishment.MuteService;
 import de.flamefoxes.punishment.PunishService;
 import de.flamefoxes.report.ReportService;
 import de.flamefoxes.sql.Mysql;
@@ -27,6 +28,7 @@ public class HexagonApplication {
         .addService(UserService.create())
         .addService(ChatlogService.create())
         .addService(TeamUserService.create())
+        .addService(MuteService.create())
         .build();
     server.start();
     server.awaitTermination();

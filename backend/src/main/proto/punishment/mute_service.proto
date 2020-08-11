@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package punishment;
+
+option java_package = "de.flamefoxes.punishment";
+option java_multiple_files = true;
+
+import "punishment/mute.proto";
+
+message CreateMuteRequest {
+  Mute mute = 1;
+}
+
+message CreateMuteResponse {
+  Mute mute = 1;
+}
+
+message FindMuteRequest {
+  string unique_id = 1;
+}
+
+message FindMuteResponse {
+  Mute mute = 1;
+}
+
+message DeleteMuteRequest {
+  string unique_id = 1;
+}
+
+message DeleteMuteResponse {
+  string unique_id = 1;
+}
+
+message ChangeMuteRequest {
+  Mute mute = 1;
+}
+
+message ChangeMuteResponse {
+  Mute mute = 1;
+}
+
+service MuteService {
+  rpc Create(CreateMuteRequest) returns (CreateMuteResponse);
+  rpc Find(FindMuteRequest) returns (FindMuteResponse);
+  rpc Delete(DeleteMuteRequest) returns (DeleteMuteResponse);
+  rpc Change(ChangeMuteRequest) returns (ChangeMuteResponse);
+}
