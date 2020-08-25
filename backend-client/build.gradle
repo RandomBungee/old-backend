@@ -16,7 +16,7 @@ plugins {
 }
 
 group 'de.flamefoxes.client'
-version '1.1.0'
+version '1.2.0'
 
 repositories {
     google()
@@ -51,7 +51,7 @@ dependencies {
 shadowJar {
     baseName = "backend-client"
     classifier = ''
-    archiveVersion = "1.1.0"
+    archiveVersion = "1.2.0"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

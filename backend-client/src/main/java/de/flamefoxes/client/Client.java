@@ -5,7 +5,9 @@ import de.flamefoxes.client.chatlog.ChatlogRepository;
 import de.flamefoxes.client.chatlog.InMemoryChatlogRepository;
 import de.flamefoxes.client.group.GroupRepository;
 import de.flamefoxes.client.group.InMemoryGroupRepository;
+import de.flamefoxes.client.punishment.InMemoryMuteRepository;
 import de.flamefoxes.client.punishment.InMemoryPunishRepository;
+import de.flamefoxes.client.punishment.MuteRepository;
 import de.flamefoxes.client.punishment.PunishRepository;
 import de.flamefoxes.client.report.InMemoryReportRepository;
 import de.flamefoxes.client.report.ReportRepository;
@@ -14,6 +16,7 @@ import de.flamefoxes.client.user.InMemoryUserRepository;
 import de.flamefoxes.client.user.TeamUserRepository;
 import de.flamefoxes.client.user.UserRepository;
 import de.flamefoxes.group.GroupServiceGrpc;
+import de.flamefoxes.punishment.MuteServiceGrpc;
 import de.flamefoxes.punishment.PunishServiceGrpc;
 import de.flamefoxes.report.ReportServiceGrpc;
 import de.flamefoxes.user.TeamUserServiceGrpc;
@@ -33,6 +36,7 @@ public class Client {
   private static ReportRepository reportRepository;
   private static UserRepository userRepository;
   private static TeamUserRepository teamUserRepository;
+  private static MuteRepository muteRepository;
 
   public Client() {
     ManagedChannel managedChannel = createManagedChannel();
@@ -47,6 +51,8 @@ public class Client {
     userRepository = InMemoryUserRepository.create(UserServiceGrpc.newBlockingStub
         (managedChannel));
     teamUserRepository = InMemoryTeamUserRepository.create(TeamUserServiceGrpc.newBlockingStub
+        (managedChannel));
+    muteRepository = InMemoryMuteRepository.create(MuteServiceGrpc.newBlockingStub
         (managedChannel));
   }
 
@@ -90,4 +96,8 @@ public class Client {
   }
 
   public TeamUserRepository teamUserRepository() { return teamUserRepository; }
+
+  public MuteRepository muteRepository() {
+    return muteRepository;
+  }
 }
