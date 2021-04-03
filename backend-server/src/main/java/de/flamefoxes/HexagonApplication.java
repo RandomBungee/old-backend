@@ -21,25 +21,14 @@ public class HexagonApplication {
       throws InterruptedException, IOException {
     System.out.println("Service started!");
     init();
-    Server server = ServerBuilder.forPort(GRPC_PORT)
-        .addService(GroupService.create())
-        .addService(PunishService.create())
-        .addService(ReportService.create())
-        .addService(UserService.create())
-        .addService(ChatlogService.create())
-        .addService(TeamUserService.create())
-        .addService(MuteService.create())
-        .build();
-    server.start();
-    server.awaitTermination();
   }
 
   private static void init() {
     Mysql mysql = new Mysql(
-        "127.0.0.1",
-        "testbd123",
-        "123456",
-        "testbd123",
+        "http://144.76.112.94",
+        "ts",
+        "kpXdC0CJ3cipYcSW",
+        "ts",
         3306);
     mysql.createTable();
   }

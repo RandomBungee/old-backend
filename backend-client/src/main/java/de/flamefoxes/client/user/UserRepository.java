@@ -39,7 +39,7 @@ public interface UserRepository {
    * @param rank the new Rank of the Player
    * @param coins the new Coins of the Player
    * @param wins the new Wins of the Player
-   * @param banPoints the new Ban-Ponts of the Player
+   * @param banPoints the new Ban-Points of the Player
    * @param banHistory the edited Ban-History of the Player
    */
   void update(
