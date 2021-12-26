@@ -1,6 +1,5 @@
 package de.flamefoxes.client.user;
 
-import com.sun.istack.internal.NotNull;
 import de.flamefoxes.user.User;
 import java.util.List;
 
@@ -30,7 +29,6 @@ public interface UserRepository {
 
   /**
    * Edit a Player
-   * <br>Not nullable</br>
    * Use it eo edit Coins, Rank, Wind, Ban-Points or the Player Ban-History
    * Pleas don´t edit the Player Rank, you don´t need it
    * The new amount of Coins, Wins or Ban-Points are counted on the old ones
@@ -43,13 +41,13 @@ public interface UserRepository {
    * @param banHistory the edited Ban-History of the Player
    */
   void update(
-      @NotNull String uniqueId,
-      @NotNull String rank,
-      @NotNull long coins,
-      @NotNull long wins,
-      @NotNull long banPoints,
-      @NotNull boolean isBanned,
-      @NotNull List<String> banHistory
+       String uniqueId,
+       String rank,
+       long coins,
+       long wins,
+       long banPoints,
+       boolean isBanned,
+       List<String> banHistory
   );
 
   /**
